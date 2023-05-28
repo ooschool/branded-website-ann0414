@@ -6,11 +6,6 @@ function plusSlides(n) {
 }
 
 function currentSlide(n) {
-  var images = [];
-  images[1] = "../images/background_1.png";
-  images[2] = "../images/background_2.png";
-  images[3] = "../images/background_3.png";
-  document.body.style.backgroundImage = "url('+ images[n] +')";
   showSlides((slideIndex = n));
 }
 
@@ -18,7 +13,10 @@ function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  let background = document.getElementsByClassName("bg");
+  var images = [];
+  images[0] = "url(../images/background_1.png)";
+  images[1] = "url(../images/background_2.png)";
+  images[2] = "url(../images/background_3.png)";
 
   if (n > slides.length) {
     slideIndex = 1;
@@ -35,4 +33,5 @@ function showSlides(n) {
 
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
+  document.body.style.backgroundImage = images[slideIndex - 1];
 }
