@@ -12,7 +12,8 @@ function currentSlide(n) {
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
+  let items = document.getElementsByClassName("item");
+
   var images = [];
   images[0] = "url(../images/background_1.png)";
   images[1] = "url(../images/background_2.png)";
@@ -27,11 +28,14 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+  for (i = 0; i < items.length; i++) {
+    items[i].className = items[i].className.replace(" active", "");
+    console.log(items[i]);
   }
 
   slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  document.body.style.backgroundImage = images[slideIndex - 1];
+  items[slideIndex - 1].className += " active";
+
+  document.getElementsByClassName("main")[0].style.backgroundImage =
+    images[slideIndex - 1];
 }
